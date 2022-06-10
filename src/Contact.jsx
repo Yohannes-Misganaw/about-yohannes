@@ -129,7 +129,7 @@ function Contact() {
           </div>
 
           <button
-            disabled={!loading}
+            disabled={loading}
             className="bg-cyan-300 hover:bg-cyan-400 w-24 h-12 rounded-lg mr-4"
           >
             {loading ? "Sending" : "Submit"}

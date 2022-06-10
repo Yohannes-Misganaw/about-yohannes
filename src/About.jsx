@@ -9,7 +9,6 @@ export default function About() {
       <div className="absolute md:mt-96 mt-500 md:left-800 w-72 h-72 bg-cyan-300 rounded-full animate-blob animation-delay-4000  filter blur-lg opacity-80"></div>
 
       <div className=" relative flex flex-1 items-center h-full">
-        {/* <div className="a-card bg absolute mt-100 ml-100 bg-dark w-8/12 h-90 rounded-alg"></div> */}
         <div className="relative mt-50 ml-50 overflow-hidden md:w-8/12 md:h-90 rounded-alg h-60">
           <img src={me} alt="" className="a-img w-full h-full object-cover" />
         </div>
@@ -24,7 +23,7 @@ export default function About() {
           and ability.
         </p>
         <p className="a-desc font-light text-2xl font-Courgette text-violet-600  ">
-          As Sir Kin Robinson said "The role of a creative leader is not to have
+          As Sir Ken Robinson said "The role of a creative leader is not to have
           all the ideas; it's to create a culture where everyone can have ideas
           and feel that they're valued. So it's much more about creating
           climates." and really believe in this quote and I'm motivated with
