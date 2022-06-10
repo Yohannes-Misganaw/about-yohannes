@@ -5,13 +5,15 @@ import instagram from "./Img/instagram.png";
 import Email from "./Img/email.png";
 import Address from "./Img/address.png";
 import Linkdin from "./Img/Linkdin.png";
-import Github from "./Img/Github.png";
 
 function Contact() {
   const formRef = useRef();
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
+    if (loading) return;
+    setLoading(true);
     e.preventDefault();
 
     emailjs
@@ -25,6 +27,7 @@ function Contact() {
         (result) => {
           console.log(result.text);
           setDone(true);
+          setLoading(false);
         },
         (error) => {
           console.log(error.text);
@@ -82,16 +85,6 @@ function Contact() {
               Linkdin
             </a>
           </div>
-          <div className="flex items-start ml-4 my-4 md:w-3/4 hover:text-sky-400">
-            <img className="w-50 h-50 mr-4" src={Github} alt="" />
-            <a
-              href="https://github.com/Yohannes-Misganaw"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Github
-            </a>
-          </div>
         </div>
       </div>
       <div className="flex flex-col flex-1 z-20 mt-10 ml-8 ">
@@ -134,8 +127,12 @@ function Contact() {
               required
             />
           </div>
-          <button className="bg-cyan-300 hover:bg-cyan-400 w-24 h-12 rounded-lg mr-4">
-            Submit
+
+          <button
+            disabled={!loading}
+            className="bg-cyan-300 hover:bg-cyan-400 w-24 h-12 rounded-lg mr-4"
+          >
+            {loading ? "Sending" : "Submit"}
           </button>
           <div className="font-Oleo text-lg">
             {done && "Your message is sent Thank you ✨😉"}
